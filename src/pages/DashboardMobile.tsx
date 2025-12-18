@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { User, Heart, Activity, Pill, FileText, Edit2, Check, Crown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { User, Heart, Activity, Pill, FileText, Edit2, Check, Crown, ArrowLeft } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -70,7 +71,17 @@ const DashboardMobile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-800 flex flex-col items-center justify-center p-8">
+      {/* Back Button */}
+      <div className="mb-6">
+        <Button variant="outline" asChild>
+          <Link to="/">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Home
+          </Link>
+        </Button>
+      </div>
+      
       {/* Smartphone Frame */}
       <div className="relative">
         {/* Phone outer frame */}
