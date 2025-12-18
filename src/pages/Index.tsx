@@ -13,7 +13,8 @@ import {
   ArrowRight,
   Sparkles,
   FileText,
-  Users
+  Users,
+  Smartphone
 } from "lucide-react";
 
 const Index = () => {
@@ -82,6 +83,15 @@ const Index = () => {
                 <Button size="lg" variant="outline" asChild className="text-lg px-8 h-14">
                   <Link to="/trust">
                     Learn About Our Data
+                  </Link>
+                </Button>
+              </div>
+              
+              <div className="pt-4">
+                <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground">
+                  <Link to="/dashboard-mobile">
+                    <Smartphone className="mr-2 h-4 w-4" />
+                    View Mobile App Demo
                   </Link>
                 </Button>
               </div>
