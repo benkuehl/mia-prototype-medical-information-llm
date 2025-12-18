@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import { Send, Bot, User, ArrowLeft, ImagePlus, Mic, RotateCcw } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import mildSkinRashImage from "@/assets/mild-skin-rash.png";
 
 interface Message {
   id: string;
   role: "user" | "assistant";
   content: string;
+  image?: string;
 }
 
 const allMessages: Message[] = [
@@ -25,6 +27,17 @@ const allMessages: Message[] = [
     id: "3",
     role: "assistant",
     content: "**Ibuprofen Side Effects:**\n\n• Stomach pain or heartburn\n• Dizziness or headache\n• Mild skin rash\n\n**Serious (seek help):**\n• Stomach bleeding signs\n• Chest pain\n• Swelling of face/throat\n\n*Always consult your healthcare provider.*",
+  },
+  {
+    id: "4",
+    role: "user",
+    content: "Can you show an example image of a mild skin rash?",
+  },
+  {
+    id: "5",
+    role: "assistant",
+    content: "Here is an example of a mild skin rash that may occur as a side effect:\n\nThis type of rash typically appears as small, pink or red spots. If you notice a rash after taking ibuprofen, stop use and consult your doctor.",
+    image: mildSkinRashImage,
   },
 ];
 
@@ -158,6 +171,13 @@ const ChatMobile = () => {
                       )}
                       <Card className={`max-w-[75%] ${message.role === "user" ? "bg-primary text-primary-foreground" : "bg-card"}`}>
                         <CardContent className="p-2">
+                          {message.image && (
+                            <img 
+                              src={message.image} 
+                              alt="Medical illustration" 
+                              className="w-full h-auto rounded mb-2 max-h-32 object-cover"
+                            />
+                          )}
                           <div className={`text-[10px] whitespace-pre-wrap leading-relaxed ${message.role === "user" ? "text-primary-foreground" : "text-foreground"}`}>
                             {message.content}
                           </div>
