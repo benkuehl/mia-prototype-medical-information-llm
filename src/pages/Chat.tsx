@@ -190,22 +190,22 @@ With a premium account, you can get personalized recommendations based on your h
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       
-      <main className="flex-1 container py-6">
+      <main className="flex-1 container py-4">
         <div className="max-w-4xl mx-auto">
           {/* Chat Header */}
-          <div className="mb-6 text-center">
-            <h1 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-2">
+          <div className="mb-3 text-center">
+            <h1 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-1">
               Ask Your Health Questions
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Get instant answers powered by verified clinical research
             </p>
           </div>
 
           {/* Example Questions */}
           {messages.length === 1 && (
-            <div className="mb-6">
-              <p className="text-sm text-muted-foreground mb-3 text-center">Try asking:</p>
+            <div className="mb-3">
+              <p className="text-sm text-muted-foreground mb-2 text-center">Try asking:</p>
               <div className="flex flex-wrap gap-2 justify-center">
                 {exampleQuestions.map((question, index) => (
                   <Button
@@ -223,7 +223,7 @@ With a premium account, you can get personalized recommendations based on your h
           )}
 
           {/* Messages */}
-          <div className="space-y-4 mb-6 min-h-[400px] max-h-[600px] overflow-y-auto">
+          <div className="space-y-3 mb-4 min-h-[200px] max-h-[400px] overflow-y-auto">
             {messages.map((message) => (
               <div
                 key={message.id}
