@@ -87,11 +87,17 @@ const Index = () => {
                 </Button>
               </div>
               
-              <div className="pt-4">
+              <div className="pt-4 flex gap-4 justify-center">
                 <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground">
                   <Link to="/dashboard-mobile">
                     <Smartphone className="mr-2 h-4 w-4" />
-                    View Mobile App Demo
+                    Dashboard Demo
+                  </Link>
+                </Button>
+                <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground">
+                  <Link to="/chat-mobile">
+                    <Smartphone className="mr-2 h-4 w-4" />
+                    Chat Demo
                   </Link>
                 </Button>
               </div>
