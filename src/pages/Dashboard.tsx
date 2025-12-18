@@ -146,50 +146,54 @@ const Dashboard = () => {
 
           <div className="grid lg:grid-cols-3 gap-6">
             {/* Profile Card */}
-            <Card className="border-border">
-              <CardHeader>
+            <Card className="border-border h-fit">
+              <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
                   <User className="h-5 w-5 text-primary" />
                   Personal Information
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="flex flex-col items-center mb-6">
-                  <div className="h-20 w-20 rounded-full gradient-mia flex items-center justify-center mb-3">
-                    <User className="h-10 w-10 text-primary-foreground" />
+              <CardContent className="pt-0">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="h-14 w-14 rounded-full gradient-mia flex items-center justify-center flex-shrink-0">
+                    <User className="h-7 w-7 text-primary-foreground" />
                   </div>
-                  {isEditing ? (
-                    <Input 
-                      value={profile.name}
-                      onChange={(e) => setProfile({ ...profile, name: e.target.value })}
-                      className="text-center font-display font-semibold"
-                    />
-                  ) : (
-                    <h3 className="font-display font-semibold text-lg text-foreground">{profile.name}</h3>
-                  )}
+                  <div>
+                    {isEditing ? (
+                      <Input 
+                        value={profile.name}
+                        onChange={(e) => setProfile({ ...profile, name: e.target.value })}
+                        className="font-display font-semibold"
+                      />
+                    ) : (
+                      <h3 className="font-display font-semibold text-lg text-foreground">{profile.name}</h3>
+                    )}
+                  </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <Label className="text-muted-foreground text-sm">Age</Label>
+                    <Label className="text-muted-foreground text-xs">Age</Label>
                     {isEditing ? (
                       <Input 
                         value={profile.age}
                         onChange={(e) => setProfile({ ...profile, age: e.target.value })}
+                        className="h-8 text-sm"
                       />
                     ) : (
-                      <p className="text-foreground font-medium">{profile.age} years old</p>
+                      <p className="text-foreground font-medium text-sm">{profile.age} years</p>
                     )}
                   </div>
                   <div>
-                    <Label className="text-muted-foreground text-sm">Blood Type</Label>
+                    <Label className="text-muted-foreground text-xs">Blood Type</Label>
                     {isEditing ? (
                       <Input 
                         value={profile.bloodType}
                         onChange={(e) => setProfile({ ...profile, bloodType: e.target.value })}
+                        className="h-8 text-sm"
                       />
                     ) : (
-                      <p className="text-foreground font-medium">{profile.bloodType}</p>
+                      <p className="text-foreground font-medium text-sm">{profile.bloodType}</p>
                     )}
                   </div>
                 </div>
