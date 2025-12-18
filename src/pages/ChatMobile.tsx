@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Send, Bot, User, ArrowLeft, ImagePlus, Mic } from "lucide-react";
+import { Send, Bot, User, ArrowLeft, ImagePlus, Mic, RotateCcw } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -10,35 +10,109 @@ interface Message {
   content: string;
 }
 
+const allMessages: Message[] = [
+  {
+    id: "1",
+    role: "assistant",
+    content: "Hello! I'm MIA, your trusted Medical Information App. How can I help you today?",
+  },
+  {
+    id: "2",
+    role: "user",
+    content: "What are the side effects of ibuprofen?",
+  },
+  {
+    id: "3",
+    role: "assistant",
+    content: "**Ibuprofen Side Effects:**\n\n• Stomach pain or heartburn\n• Dizziness or headache\n• Mild skin rash\n\n**Serious (seek help):**\n• Stomach bleeding signs\n• Chest pain\n• Swelling of face/throat\n\n*Always consult your healthcare provider.*",
+  },
+];
+
 const ChatMobile = () => {
-  const [messages] = useState<Message[]>([
-    {
-      id: "1",
-      role: "assistant",
-      content: "Hello! I'm MIA, your trusted Medical Information App. How can I help you today?",
-    },
-    {
-      id: "2",
-      role: "user",
-      content: "What are the side effects of ibuprofen?",
-    },
-    {
-      id: "3",
-      role: "assistant",
-      content: "**Ibuprofen Side Effects:**\n\n• Stomach pain or heartburn\n• Dizziness or headache\n• Mild skin rash\n\n**Serious (seek help):**\n• Stomach bleeding signs\n• Chest pain\n• Swelling of face/throat\n\n*Always consult your healthcare provider.*",
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [isTyping, setIsTyping] = useState(false);
+  const [typingText, setTypingText] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, typingText]);
+
+  useEffect(() => {
+    if (currentStep >= allMessages.length) {
+      setIsComplete(true);
+      return;
+    }
+
+    const message = allMessages[currentStep];
+    
+    if (message.role === "assistant") {
+      // Show typing indicator, then reveal message
+      setIsTyping(true);
+      const typingDelay = currentStep === 0 ? 500 : 1500;
+      
+      const timer = setTimeout(() => {
+        setIsTyping(false);
+        setMessages(prev => [...prev, message]);
+        setCurrentStep(prev => prev + 1);
+      }, typingDelay);
+      
+      return () => clearTimeout(timer);
+    } else {
+      // Simulate user typing
+      const fullText = message.content;
+      let charIndex = 0;
+      setTypingText("");
+      
+      const typeInterval = setInterval(() => {
+        if (charIndex < fullText.length) {
+          setTypingText(fullText.slice(0, charIndex + 1));
+          charIndex++;
+        } else {
+          clearInterval(typeInterval);
+          // After typing complete, add message and move to next step
+          setTimeout(() => {
+            setTypingText("");
+            setMessages(prev => [...prev, message]);
+            setCurrentStep(prev => prev + 1);
+          }, 500);
+        }
+      }, 50);
+      
+      return () => clearInterval(typeInterval);
+    }
+  }, [currentStep]);
+
+  const restartDemo = () => {
+    setMessages([]);
+    setCurrentStep(0);
+    setIsTyping(false);
+    setTypingText("");
+    setIsComplete(false);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-800 flex flex-col items-center justify-center p-8">
-      {/* Back Button */}
-      <div className="mb-6">
+      {/* Back Button and Restart */}
+      <div className="mb-6 flex gap-3">
         <Button variant="outline" asChild>
           <Link to="/">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Home
           </Link>
         </Button>
+        {isComplete && (
+          <Button variant="outline" onClick={restartDemo}>
+            <RotateCcw className="mr-2 h-4 w-4" />
+            Replay Demo
+          </Button>
+        )}
       </div>
 
       {/* Smartphone Frame */}
@@ -75,7 +149,7 @@ const ChatMobile = () => {
                   {messages.map((message) => (
                     <div
                       key={message.id}
-                      className={`flex gap-2 ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                      className={`flex gap-2 animate-fade-in ${message.role === "user" ? "justify-end" : "justify-start"}`}
                     >
                       {message.role === "assistant" && (
                         <div className="flex-shrink-0 h-6 w-6 rounded-full gradient-mia flex items-center justify-center">
@@ -96,6 +170,26 @@ const ChatMobile = () => {
                       )}
                     </div>
                   ))}
+
+                  {/* Typing Indicator for AI */}
+                  {isTyping && (
+                    <div className="flex gap-2 justify-start animate-fade-in">
+                      <div className="flex-shrink-0 h-6 w-6 rounded-full gradient-mia flex items-center justify-center">
+                        <Bot className="h-3 w-3 text-primary-foreground" />
+                      </div>
+                      <Card className="bg-card">
+                        <CardContent className="p-2">
+                          <div className="flex gap-1">
+                            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+                            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" style={{ animationDelay: "0.2s" }} />
+                            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" style={{ animationDelay: "0.4s" }} />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  )}
+
+                  <div ref={messagesEndRef} />
                 </div>
 
                 {/* Input Area */}
@@ -116,8 +210,12 @@ const ChatMobile = () => {
                       >
                         <Mic className="h-3 w-3" />
                       </Button>
-                      <div className="flex-1 bg-muted rounded-md px-2 py-1.5">
-                        <span className="text-[10px] text-muted-foreground">Ask about medications...</span>
+                      <div className="flex-1 bg-muted rounded-md px-2 py-1.5 min-h-[28px]">
+                        {typingText ? (
+                          <span className="text-[10px] text-foreground">{typingText}<span className="animate-pulse">|</span></span>
+                        ) : (
+                          <span className="text-[10px] text-muted-foreground">Ask about medications...</span>
+                        )}
                       </div>
                       <Button
                         size="icon"
