@@ -54,7 +54,7 @@ const Index = () => {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden gradient-subtle">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--healthcare-blue)/0.1),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--mia-teal)/0.1),transparent_50%)]" />
           <div className="container relative py-20 md:py-32">
             <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium">
@@ -73,7 +73,7 @@ const Index = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <Button size="lg" asChild className="gradient-healthcare border-0 text-lg px-8 h-14">
+                <Button size="lg" asChild className="gradient-mia border-0 text-lg px-8 h-14">
                   <Link to="/chat">
                     Start Asking Questions
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -109,7 +109,7 @@ const Index = () => {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-                How MedAssistAI Helps You
+                How MIA Helps You
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Get reliable, personalized healthcare guidance powered by AI and backed by verified clinical research.
@@ -121,7 +121,7 @@ const Index = () => {
                 <Card key={index} className="border-border hover:border-primary/30 transition-colors group">
                   <CardContent className="p-6">
                     <div className="flex gap-4">
-                      <div className="flex-shrink-0 h-12 w-12 rounded-lg gradient-healthcare flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <div className="flex-shrink-0 h-12 w-12 rounded-lg gradient-mia flex items-center justify-center group-hover:scale-110 transition-transform">
                         <feature.icon className="h-6 w-6 text-primary-foreground" />
                       </div>
                       <div>
@@ -149,7 +149,7 @@ const Index = () => {
                   Built on Trust & Compliance
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Unlike general AI assistants, MedAssistAI is trained exclusively on verified 
+                  Unlike general AI assistants, MIA is trained exclusively on verified 
                   internal clinical research data, ensuring every response meets the highest 
                   standards of medical accuracy and regulatory compliance.
                 </p>
@@ -175,7 +175,7 @@ const Index = () => {
                 <Card className="border-border shadow-lg">
                   <CardContent className="p-8">
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="h-14 w-14 rounded-full gradient-healthcare flex items-center justify-center">
+                      <div className="h-14 w-14 rounded-full gradient-mia flex items-center justify-center">
                         <Shield className="h-7 w-7 text-primary-foreground" />
                       </div>
                       <div>
@@ -207,7 +207,7 @@ const Index = () => {
         {/* CTA Section */}
         <section className="py-20 bg-card">
           <div className="container">
-            <Card className="gradient-healthcare border-0 overflow-hidden">
+            <Card className="gradient-mia border-0 overflow-hidden">
               <CardContent className="p-8 md:p-12 text-center">
                 <div className="flex justify-center mb-6">
                   <div className="h-16 w-16 rounded-full bg-primary-foreground/20 flex items-center justify-center">

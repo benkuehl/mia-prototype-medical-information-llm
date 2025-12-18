@@ -97,7 +97,7 @@ const Dashboard = () => {
         <div className="max-w-6xl mx-auto">
           {/* Premium Banner */}
           {isPremium && (
-            <Card className="mb-6 gradient-healthcare border-0">
+            <Card className="mb-6 gradient-mia border-0">
               <CardContent className="p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
@@ -128,7 +128,7 @@ const Dashboard = () => {
             <Button
               variant={isEditing ? "default" : "outline"}
               onClick={() => setIsEditing(!isEditing)}
-              className={isEditing ? "gradient-healthcare border-0" : ""}
+              className={isEditing ? "gradient-mia border-0" : ""}
             >
               {isEditing ? (
                 <>
@@ -155,7 +155,7 @@ const Dashboard = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col items-center mb-6">
-                  <div className="h-20 w-20 rounded-full gradient-healthcare flex items-center justify-center mb-3">
+                  <div className="h-20 w-20 rounded-full gradient-mia flex items-center justify-center mb-3">
                     <User className="h-10 w-10 text-primary-foreground" />
                   </div>
                   {isEditing ? (
@@ -329,7 +329,7 @@ const Dashboard = () => {
           <Card className="mt-6 border-border bg-secondary/30">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <div className="h-12 w-12 rounded-lg gradient-healthcare flex items-center justify-center flex-shrink-0">
+                <div className="h-12 w-12 rounded-lg gradient-mia flex items-center justify-center flex-shrink-0">
                   <TrendingUp className="h-6 w-6 text-primary-foreground" />
                 </div>
                 <div>
@@ -337,7 +337,7 @@ const Dashboard = () => {
                     How Your Profile Helps
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4">
-                    Your health profile enables MedAssistAI to provide personalized recommendations 
+                    Your health profile enables MIA to provide personalized recommendations 
                     that consider your medical history, current medications, and health conditions. 
                     This means more accurate answers about drug interactions, dosage considerations, 
                     and health advice tailored specifically to you.

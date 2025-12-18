@@ -51,11 +51,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        healthcare: {
-          blue: "hsl(var(--healthcare-blue))",
-          "blue-light": "hsl(var(--healthcare-blue-light))",
-          "blue-medium": "hsl(var(--healthcare-blue-medium))",
-          navy: "hsl(var(--healthcare-navy))",
+        mia: {
+          teal: "hsl(var(--mia-teal))",
+          "teal-light": "hsl(var(--mia-teal-light))",
+          "teal-medium": "hsl(var(--mia-teal-medium))",
+          dark: "hsl(var(--mia-dark))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

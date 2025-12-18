@@ -4,105 +4,105 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Healthcare AI App Design System
-   Professional blue color palette with high contrast for accessibility
+/* MIA - Medical Information App Design System
+   Teal color palette with high contrast for accessibility
    All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: 175 35% 97%;
+    --foreground: 175 45% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 175 45% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 175 45% 15%;
 
-    --primary: 210 100% 45%;
+    --primary: 175 50% 32%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 60% 94%;
-    --secondary-foreground: 210 100% 25%;
+    --secondary: 175 40% 92%;
+    --secondary-foreground: 175 50% 25%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 175 25% 94%;
+    --muted-foreground: 175 20% 40%;
 
-    --accent: 199 89% 48%;
+    --accent: 175 55% 38%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 31% 88%;
-    --input: 210 31% 88%;
-    --ring: 210 100% 45%;
+    --border: 175 25% 88%;
+    --input: 175 25% 88%;
+    --ring: 175 50% 32%;
 
     --radius: 0.75rem;
 
-    /* Custom healthcare tokens */
-    --healthcare-blue: 210 100% 45%;
-    --healthcare-blue-light: 210 100% 95%;
-    --healthcare-blue-medium: 210 80% 60%;
-    --healthcare-navy: 222 47% 11%;
-    --healthcare-gradient: linear-gradient(135deg, hsl(210 100% 45%) 0%, hsl(199 89% 48%) 100%);
-    --healthcare-gradient-subtle: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(210 60% 94%) 100%);
+    /* Custom MIA tokens */
+    --mia-teal: 175 50% 32%;
+    --mia-teal-light: 175 40% 95%;
+    --mia-teal-medium: 175 45% 45%;
+    --mia-dark: 175 45% 15%;
+    --mia-gradient: linear-gradient(135deg, hsl(175 50% 32%) 0%, hsl(175 55% 38%) 100%);
+    --mia-gradient-subtle: linear-gradient(180deg, hsl(175 35% 97%) 0%, hsl(175 40% 92%) 100%);
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 210 100% 45%;
+    --sidebar-foreground: 175 45% 15%;
+    --sidebar-primary: 175 50% 32%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 60% 94%;
-    --sidebar-accent-foreground: 210 100% 25%;
-    --sidebar-border: 210 31% 88%;
-    --sidebar-ring: 210 100% 45%;
+    --sidebar-accent: 175 40% 92%;
+    --sidebar-accent-foreground: 175 50% 25%;
+    --sidebar-border: 175 25% 88%;
+    --sidebar-ring: 175 50% 32%;
   }
 
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    --background: 175 40% 6%;
+    --foreground: 175 20% 95%;
 
-    --card: 222 47% 9%;
-    --card-foreground: 210 40% 98%;
+    --card: 175 40% 9%;
+    --card-foreground: 175 20% 95%;
 
-    --popover: 222 47% 9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 175 40% 9%;
+    --popover-foreground: 175 20% 95%;
 
-    --primary: 210 100% 55%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 175 50% 45%;
+    --primary-foreground: 175 40% 6%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 175 35% 15%;
+    --secondary-foreground: 175 20% 95%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 175 30% 15%;
+    --muted-foreground: 175 15% 60%;
 
-    --accent: 199 89% 48%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 175 50% 40%;
+    --accent-foreground: 175 40% 6%;
 
     --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 175 20% 95%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 210 100% 55%;
+    --border: 175 30% 18%;
+    --input: 175 30% 18%;
+    --ring: 175 50% 45%;
 
-    --healthcare-blue: 210 100% 55%;
-    --healthcare-blue-light: 210 50% 15%;
-    --healthcare-blue-medium: 210 80% 50%;
-    --healthcare-navy: 210 40% 98%;
-    --healthcare-gradient: linear-gradient(135deg, hsl(210 100% 55%) 0%, hsl(199 89% 48%) 100%);
-    --healthcare-gradient-subtle: linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(222 47% 9%) 100%);
+    --mia-teal: 175 50% 45%;
+    --mia-teal-light: 175 35% 15%;
+    --mia-teal-medium: 175 45% 40%;
+    --mia-dark: 175 20% 95%;
+    --mia-gradient: linear-gradient(135deg, hsl(175 50% 45%) 0%, hsl(175 55% 40%) 100%);
+    --mia-gradient-subtle: linear-gradient(180deg, hsl(175 40% 6%) 0%, hsl(175 40% 9%) 100%);
 
-    --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 210 100% 55%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 17%;
-    --sidebar-ring: 210 100% 55%;
+    --sidebar-background: 175 40% 6%;
+    --sidebar-foreground: 175 20% 95%;
+    --sidebar-primary: 175 50% 45%;
+    --sidebar-primary-foreground: 175 40% 6%;
+    --sidebar-accent: 175 35% 15%;
+    --sidebar-accent-foreground: 175 20% 95%;
+    --sidebar-border: 175 30% 18%;
+    --sidebar-ring: 175 50% 45%;
   }
 }
 
@@ -121,16 +121,16 @@
 }
 
 @layer utilities {
-  .gradient-healthcare {
-    background: var(--healthcare-gradient);
+  .gradient-mia {
+    background: var(--mia-gradient);
   }
 
   .gradient-subtle {
-    background: var(--healthcare-gradient-subtle);
+    background: var(--mia-gradient-subtle);
   }
 
   .text-gradient {
-    background: var(--healthcare-gradient);
+    background: var(--mia-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

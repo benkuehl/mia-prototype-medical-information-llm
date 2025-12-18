@@ -19,11 +19,11 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-healthcare">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-mia">
             <MessageCircle className="h-5 w-5 text-primary-foreground" />
           </div>
           <span className="font-display text-xl font-bold text-foreground">
-            MedAssist<span className="text-primary">AI</span>
+            MIA
           </span>
         </Link>
 
@@ -46,7 +46,7 @@ const Header = () => {
           <Button variant="outline" asChild>
             <Link to="/dashboard">Sign In</Link>
           </Button>
-          <Button asChild className="gradient-healthcare border-0">
+          <Button asChild className="gradient-mia border-0">
             <Link to="/chat">Get Started</Link>
           </Button>
         </div>
@@ -81,7 +81,7 @@ const Header = () => {
               <Button variant="outline" asChild>
                 <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)}>Sign In</Link>
               </Button>
-              <Button asChild className="gradient-healthcare border-0">
+              <Button asChild className="gradient-mia border-0">
                 <Link to="/chat" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
               </Button>
             </div>
