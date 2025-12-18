@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Send, Bot, User, ArrowLeft, ImagePlus } from "lucide-react";
+import { Send, Bot, User, ArrowLeft, ImagePlus, Mic } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -101,13 +101,20 @@ const ChatMobile = () => {
                 {/* Input Area */}
                 <Card className="border-border flex-shrink-0">
                   <CardContent className="p-2">
-                    <div className="flex gap-2 items-center">
+                    <div className="flex gap-1.5 items-center">
                       <Button
                         variant="outline"
                         size="icon"
                         className="h-7 w-7 flex-shrink-0"
                       >
                         <ImagePlus className="h-3 w-3" />
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="h-7 w-7 flex-shrink-0"
+                      >
+                        <Mic className="h-3 w-3" />
                       </Button>
                       <div className="flex-1 bg-muted rounded-md px-2 py-1.5">
                         <span className="text-[10px] text-muted-foreground">Ask about medications...</span>

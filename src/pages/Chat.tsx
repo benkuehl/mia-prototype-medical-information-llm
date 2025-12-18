@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { useToast } from "@/hooks/use-toast";
 import { 
   Send, 
   ImagePlus, 
@@ -12,9 +13,10 @@ import {
   User,
   Sparkles,
   Pill,
-  AlertCircle,
-  Clock,
-  FileText
+  FileText,
+  Mic,
+  MicOff,
+  Square
 } from "lucide-react";
 
 interface Message {
@@ -35,7 +37,12 @@ const Chat = () => {
   const [input, setInput] = useState("");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
+  const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+  const { toast } = useToast();
 
   const exampleQuestions = [
     "What are the side effects of ibuprofen?",
@@ -55,19 +62,66 @@ const Chat = () => {
     }
   };
 
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+      audioChunksRef.current = [];
+
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          audioChunksRef.current.push(event.data);
+        }
+      };
+
+      mediaRecorder.onstop = () => {
+        const blob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+        setAudioBlob(blob);
+        stream.getTracks().forEach(track => track.stop());
+      };
+
+      mediaRecorder.start();
+      setIsRecording(true);
+      toast({
+        title: "Recording started",
+        description: "Speak your question clearly",
+      });
+    } catch (error) {
+      toast({
+        title: "Microphone access denied",
+        description: "Please allow microphone access to record audio",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const stopRecording = () => {
+    if (mediaRecorderRef.current && isRecording) {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+    }
+  };
+
+  const removeAudio = () => {
+    setAudioBlob(null);
+    audioChunksRef.current = [];
+  };
+
   const handleSend = async () => {
-    if (!input.trim() && !selectedImage) return;
+    if (!input.trim() && !selectedImage && !audioBlob) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
       role: "user",
-      content: input,
+      content: audioBlob ? "[Voice message recorded]" : input,
       image: selectedImage || undefined,
     };
 
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setSelectedImage(null);
+    setAudioBlob(null);
     setIsLoading(true);
 
     // Simulate AI response with a drafted medical answer
@@ -280,8 +334,9 @@ With a premium account, you can get personalized recommendations based on your h
           {/* Input Area */}
           <Card className="border-border">
             <CardContent className="p-4">
+              {/* Image Preview */}
               {selectedImage && (
-                <div className="relative inline-block mb-3">
+                <div className="relative inline-block mb-3 mr-3">
                   <img 
                     src={selectedImage} 
                     alt="Selected" 
@@ -297,6 +352,22 @@ With a premium account, you can get personalized recommendations based on your h
                   </Button>
                 </div>
               )}
+
+              {/* Audio Preview */}
+              {audioBlob && (
+                <div className="relative inline-flex items-center gap-2 mb-3 p-2 bg-secondary rounded-lg">
+                  <Mic className="h-4 w-4 text-primary" />
+                  <span className="text-sm text-foreground">Voice message ready</span>
+                  <Button
+                    variant="destructive"
+                    size="icon"
+                    className="h-6 w-6"
+                    onClick={removeAudio}
+                  >
+                    <X className="h-3 w-3" />
+                  </Button>
+                </div>
+              )}
               
               <div className="flex gap-2">
                 <input
@@ -306,19 +377,34 @@ With a premium account, you can get personalized recommendations based on your h
                   accept="image/*"
                   className="hidden"
                 />
+                {/* Image Upload Button */}
                 <Button
                   variant="outline"
                   size="icon"
                   onClick={() => fileInputRef.current?.click()}
                   className="flex-shrink-0"
+                  disabled={isRecording}
                 >
                   <ImagePlus className="h-4 w-4" />
                 </Button>
+
+                {/* Audio Record Button */}
+                <Button
+                  variant={isRecording ? "destructive" : "outline"}
+                  size="icon"
+                  onClick={isRecording ? stopRecording : startRecording}
+                  className="flex-shrink-0"
+                  disabled={!!audioBlob}
+                >
+                  {isRecording ? <Square className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
+                </Button>
+
                 <Textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask about your medications, symptoms, or upload an image..."
+                  placeholder={isRecording ? "Recording... click stop when done" : "Ask about your medications, symptoms, or record audio..."}
                   className="min-h-[44px] max-h-32 resize-none"
+                  disabled={isRecording}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey) {
                       e.preventDefault();
@@ -328,7 +414,7 @@ With a premium account, you can get personalized recommendations based on your h
                 />
                 <Button
                   onClick={handleSend}
-                  disabled={(!input.trim() && !selectedImage) || isLoading}
+                  disabled={(!input.trim() && !selectedImage && !audioBlob) || isLoading || isRecording}
                   className="gradient-mia border-0 flex-shrink-0"
                 >
                   <Send className="h-4 w-4" />
