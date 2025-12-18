@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { MessageCircle, Shield, FileText, Mail } from "lucide-react";
+import { Shield, FileText, Mail } from "lucide-react";
+import MiaLogo from "@/components/MiaLogo";
 
 const Footer = () => {
   return (
@@ -8,15 +9,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-mia">
-                <MessageCircle className="h-4 w-4 text-primary-foreground" />
-              </div>
+              <MiaLogo className="h-9 w-9" />
               <span className="font-display text-lg font-bold text-foreground">
                 MIA
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              Medical Information App — AI-powered healthcare guidance backed by verified clinical research and regulatory compliance.
+              Improving Medication Safety Through AI — backed by verified clinical research and regulatory compliance.
             </p>
           </div>
 

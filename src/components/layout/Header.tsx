@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, User, Shield, Menu, X } from "lucide-react";
 import { useState } from "react";
+import MiaLogo from "@/components/MiaLogo";
 
 const Header = () => {
   const location = useLocation();
@@ -19,9 +20,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-mia">
-            <MessageCircle className="h-5 w-5 text-primary-foreground" />
-          </div>
+          <MiaLogo className="h-10 w-10" />
           <span className="font-display text-xl font-bold text-foreground">
             MIA
           </span>

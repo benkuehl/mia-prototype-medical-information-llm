@@ -59,7 +59,7 @@ const Index = () => {
             <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium">
                 <Sparkles className="h-4 w-4" />
-                AI-Powered Healthcare Guidance
+                Improving Medication Safety Through AI
               </div>
               
               <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground leading-tight">
