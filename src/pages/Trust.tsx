@@ -78,7 +78,7 @@ const Trust = () => {
   ];
 
   const limitations = [
-    "MedAssistAI provides health information, not medical diagnoses",
+    "MIA provides health information, not medical diagnoses",
     "Always consult a healthcare provider for medical decisions",
     "Emergency situations require immediate professional care",
     "Individual responses to medications may vary",
@@ -102,7 +102,7 @@ const Trust = () => {
                 Trust, Transparency & <span className="text-gradient">Compliance</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Learn how MedAssistAI ensures every piece of health information you receive 
+                Learn how MIA ensures every piece of health information you receive 
                 is accurate, verified, and compliant with the highest regulatory standards.
               </p>
             </div>
@@ -117,7 +117,7 @@ const Trust = () => {
                 Our Data Sources
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Unlike generic AI assistants, MedAssistAI is trained exclusively on verified 
+                Unlike generic AI assistants, MIA is trained exclusively on verified 
                 internal clinical research and drug development data.
               </p>
             </div>
@@ -127,7 +127,7 @@ const Trust = () => {
                 <Card key={index} className="border-border">
                   <CardContent className="p-6">
                     <div className="flex gap-4">
-                      <div className="flex-shrink-0 h-12 w-12 rounded-lg gradient-healthcare flex items-center justify-center">
+                      <div className="flex-shrink-0 h-12 w-12 rounded-lg gradient-mia flex items-center justify-center">
                         <principle.icon className="h-6 w-6 text-primary-foreground" />
                       </div>
                       <div>
@@ -213,7 +213,7 @@ const Trust = () => {
                 <Card className="border-border shadow-lg">
                   <CardHeader>
                     <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-lg gradient-healthcare flex items-center justify-center">
+                      <div className="h-12 w-12 rounded-lg gradient-mia flex items-center justify-center">
                         <Award className="h-6 w-6 text-primary-foreground" />
                       </div>
                       <div>
@@ -270,7 +270,7 @@ const Trust = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-6">
-                  While MedAssistAI strives to provide accurate health information, it's important 
+                  While MIA strives to provide accurate health information, it's important 
                   to understand the limitations of any AI-powered health tool:
                 </p>
                 <ul className="space-y-3">
@@ -300,15 +300,15 @@ const Trust = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="mailto:compliance@medassistai.com"
+                href="mailto:compliance@mia-health.com"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-border text-foreground hover:bg-secondary transition-colors"
               >
                 <FileCheck className="h-4 w-4 mr-2" />
                 Contact Compliance Team
               </a>
               <a 
-                href="mailto:medical@medassistai.com"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg gradient-healthcare text-primary-foreground"
+                href="mailto:medical@mia-health.com"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-lg gradient-mia text-primary-foreground"
               >
                 <Users className="h-4 w-4 mr-2" />
                 Contact Medical Affairs

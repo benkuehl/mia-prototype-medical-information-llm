@@ -29,7 +29,7 @@ const Chat = () => {
     {
       id: "1",
       role: "assistant",
-      content: "Hello! I'm MedAssistAI, your trusted healthcare assistant. I can help you understand your medications, answer health questions, and analyze medication images. How can I assist you today?",
+      content: "Hello! I'm MIA, your trusted Medical Information App. I can help you understand your medications, answer health questions, and analyze medication images. How can I assist you today?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -230,7 +230,7 @@ With a premium account, you can get personalized recommendations based on your h
                 className={`flex gap-3 ${message.role === "user" ? "justify-end" : "justify-start"} animate-fade-in`}
               >
                 {message.role === "assistant" && (
-                  <div className="flex-shrink-0 h-8 w-8 rounded-full gradient-healthcare flex items-center justify-center">
+                  <div className="flex-shrink-0 h-8 w-8 rounded-full gradient-mia flex items-center justify-center">
                     <Bot className="h-4 w-4 text-primary-foreground" />
                   </div>
                 )}
@@ -258,7 +258,7 @@ With a premium account, you can get personalized recommendations based on your h
 
             {isLoading && (
               <div className="flex gap-3 justify-start animate-fade-in">
-                <div className="flex-shrink-0 h-8 w-8 rounded-full gradient-healthcare flex items-center justify-center">
+                <div className="flex-shrink-0 h-8 w-8 rounded-full gradient-mia flex items-center justify-center">
                   <Bot className="h-4 w-4 text-primary-foreground" />
                 </div>
                 <Card className="bg-card">
@@ -329,14 +329,14 @@ With a premium account, you can get personalized recommendations based on your h
                 <Button
                   onClick={handleSend}
                   disabled={(!input.trim() && !selectedImage) || isLoading}
-                  className="gradient-healthcare border-0 flex-shrink-0"
+                  className="gradient-mia border-0 flex-shrink-0"
                 >
                   <Send className="h-4 w-4" />
                 </Button>
               </div>
 
               <p className="text-xs text-muted-foreground mt-3 text-center">
-                MedAssistAI provides information only and does not replace professional medical advice.
+                MIA provides information only and does not replace professional medical advice.
               </p>
             </CardContent>
           </Card>

@@ -8,15 +8,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-healthcare">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-mia">
                 <MessageCircle className="h-4 w-4 text-primary-foreground" />
               </div>
               <span className="font-display text-lg font-bold text-foreground">
-                MedAssist<span className="text-primary">AI</span>
+                MIA
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              AI-powered healthcare guidance backed by verified clinical research and regulatory compliance.
+              Medical Information App — AI-powered healthcare guidance backed by verified clinical research and regulatory compliance.
             </p>
           </div>
 
@@ -69,9 +69,9 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-foreground mb-4">Contact</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="mailto:support@medassistai.com" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+                <a href="mailto:support@mia-health.com" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
                   <Mail className="h-3 w-3" />
-                  support@medassistai.com
+                  support@mia-health.com
                 </a>
               </li>
             </ul>
@@ -80,7 +80,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} MedAssistAI. All rights reserved.
+            © {new Date().getFullYear()} MIA — Medical Information App. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground max-w-md text-center md:text-right">
             This service provides health information only and does not replace professional medical advice. Always consult a healthcare provider.
