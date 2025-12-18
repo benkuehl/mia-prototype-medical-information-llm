@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Chat from "./pages/Chat";
 import Dashboard from "./pages/Dashboard";
+import DashboardMobile from "./pages/DashboardMobile";
 import Trust from "./pages/Trust";
 import NotFound from "./pages/NotFound";
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard-mobile" element={<DashboardMobile />} />
           <Route path="/trust" element={<Trust />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
