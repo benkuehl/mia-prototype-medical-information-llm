@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, User, Shield, Menu, X } from "lucide-react";
+import { MessageCircle, User, Shield, Menu, X, Smartphone } from "lucide-react";
 import { useState } from "react";
 import MiaLogo from "@/components/MiaLogo";
 
@@ -42,6 +42,12 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
+          <Button variant="outline" asChild>
+            <Link to="/phone">
+              <Smartphone className="mr-2 h-4 w-4" />
+              Phone view
+            </Link>
+          </Button>
           <Button variant="outline" asChild>
             <Link to="/dashboard">Sign In</Link>
           </Button>

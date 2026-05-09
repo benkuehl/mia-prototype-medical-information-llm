@@ -9,6 +9,7 @@ import ChatMobile from "./pages/ChatMobile";
 import Dashboard from "./pages/Dashboard";
 import DashboardMobile from "./pages/DashboardMobile";
 import Trust from "./pages/Trust";
+import PhoneVersion from "./pages/PhoneVersion";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard-mobile" element={<DashboardMobile />} />
           <Route path="/trust" element={<Trust />} />
+          <Route path="/phone" element={<PhoneVersion />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
