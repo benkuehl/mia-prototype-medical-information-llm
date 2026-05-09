@@ -42,6 +42,8 @@ const allMessages: Message[] = [
 ];
 
 const ChatMobile = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const phoneMode = searchParams.get("mode") === "phone";
   const [messages, setMessages] = useState<Message[]>([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
