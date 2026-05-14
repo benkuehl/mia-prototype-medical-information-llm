@@ -27,7 +27,7 @@ The landing page positions MIA as a verified source for medication answers, with
 ### Ask a Question — Conversational Medication Assistant
 ![MIA Chat](mia-chat.png)
 
-The core experience: a chat interface for medication and health questions, modeled on the conversational pattern users already know from ChatGPT and Claude. Features include suggested starter prompts, image upload for medication photo analysis, and voice input. Every screen carries a clear disclaimer: *"MIA provides information only and does not replace professional medical advice."*
+A chat interface for medication and health questions, modeled on the conversational pattern users already know from ChatGPT and Claude. Features include suggested starter prompts, image upload for medication photo analysis, and voice input. Every screen carries a clear disclaimer: *"MIA provides information only and does not replace professional medical advice."*
 
 ### My Health — Personalized Patient Dashboard
 ![MIA Dashboard](mia-dashboard.png)
