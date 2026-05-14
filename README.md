@@ -16,6 +16,7 @@ A growing share of Americans regularly turn to general-purpose LLMs like ChatGPT
 ## The Solution
 A **pharma-developed, specialized healthcare LLM** trained exclusively on verified data from medication research and development cycles, embedded inside a digital patient file with a clean consumer interface.
 
+
 ## Prototype Walkthrough
 
 ### Homepage — Trusted Source for Medication Answers
@@ -31,8 +32,7 @@ The core experience: a chat interface for medication and health questions, model
 ### My Health — Personalized Patient Dashboard
 ![MIA Dashboard](mia-dashboard.png)
 
-The Premium tier in action. The patient profile holds personal information, health metrics, medical history, and current medications — giving the LLM the context it needs to deliver answers tailored to the individual. Example shown: a 42-year-old patient managing Type 2 Diabetes and Hypertension, currently on Metformin and Lisinopril.
-
+The Premium tier in action. The patient profile holds personal information, health metrics, medical history, and current medications, giving the LLM the context it needs to deliver answers tailored to the individual.
 ## Tools & Technologies
 - **Lovable** — AI-assisted product design and code generation
 - **React + TypeScript** — component-based frontend with type safety
